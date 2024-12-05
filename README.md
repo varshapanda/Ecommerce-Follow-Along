@@ -82,7 +82,7 @@ This project aims to create an interactive and user-friendly e-commerce platform
 - Stack Trace: Captures the error stack for debugging purposes.
 
 
-## MILESTONE 4
+## MILESTONE 4 : Creating User Model and Controller
 
 ## 1. Creating user model for our database
 - The User Model defines the schema for storing user data in MongoDB.
