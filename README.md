@@ -82,6 +82,30 @@ This project aims to create an interactive and user-friendly e-commerce platform
 - Stack Trace: Captures the error stack for debugging purposes.
 
 
+## MILESTONE 4
+
+## 1. Creating user model for our database
+- The User Model defines the schema for storing user data in MongoDB.
+
+#### Key Components:
+- Name, Email, and Password: Required fields for every user.
+- Address: A nested structure that supports fields like city, country, and zip code.
+- Avatar: Stores user-uploaded file information (URL and public ID).
+- Role: Identifies the type of user (default: "user").
+- Reset Password Token: Used for password recovery processes.
+## 2. Setting up controllers to handle user-related data
+- Controllers contain the logic for handling user data. They act as the intermediaries between the database and the routes.
+- A controller manages the interaction between routes and models.
+- Check if the user exists in the database using findOne
+- If not, create a new user document using the save() method.
+- Error Handling: Centralize error handling for better debugging.
+## 3. Enabling file uploads using Multer
+- Multer is middleware that handles requests, primarily used for file uploads.
+- Custom Storage: Allows defining a storage destination and filename format.
+- Ease of Use: Simplifies handling file uploads in Express.js applications.
+
+
+
 
 
 
