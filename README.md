@@ -43,6 +43,7 @@ This project aims to create an interactive and user-friendly e-commerce platform
 - Mongoose configures the database with the backend
 - cors allows a web application running at one origin to request resources from a different origin.
 - nodemon is a utility that automatically restarts your Node.js application when it detects file changes in the directory where the application is running.
+- create a folder using the command "mkdir backend"
 - Initialize backend environment "npm init -y" edit the package name, give a description.
 - After doing this we can see package.json file
 - Install packages "express,nodemon,cors"
@@ -55,6 +56,31 @@ This project aims to create an interactive and user-friendly e-commerce platform
 - Edit Login.jsx file 
 - In Login.jsx file, added 2 input fields with placeholders for entering email address and password respectively . Also added a button to Login after entering the details.
 - Added styling using taildwind css.
+
+
+## MILESTONE 3
+
+### 1. Setting up of Node.js server and handling the API requests
+- The server is configured using the Express.js framework in the app.js file.
+- The dotenv package is used to load variables from the .env file for secure configuration.
+- A basic route is implemented to validate that the server is running.
+- The server listens on the port specified in the .env file.
+### 2. Connect your application to MongoDB to store and manage data
+- MongoDB is integrated using the Mongoose library. The database.js file contains the logic for connecting to the MongoDB database.
+- The connectDatabase function uses mongoose.connect() to establish a connection to MongoDB.
+- Logs descriptive error messages in case the connection fails.
+- Using dotenv ensures credentials are not hardcoded.
+- Displays a success message with the database host upon connection.
+### 3. Connection between database and server
+- The index.js file integrates the server and database connection, ensuring the database is connected whenever the server starts.
+- The Express server is started and listens on the specified port.
+- The connectDatabase function is invoked during the server startup process.
+- Logs messages for both successful server startup and database connection.
+### 4. Error handlers in backend - these handlers rectify where has the error ocurred filename.js
+- The ErrorHandler.js file defines a custom error handler class to streamline error management.
+- Error Class: Extends the native JavaScript Error class to add a status code.
+- Stack Trace: Captures the error stack for debugging purposes.
+
 
 
 
