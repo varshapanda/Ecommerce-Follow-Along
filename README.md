@@ -58,7 +58,7 @@ This project aims to create an interactive and user-friendly e-commerce platform
 - Added styling using taildwind css.
 
 
-## MILESTONE 3
+## MILESTONE 3 : Project Setup for Backend 
 
 ### 1. Setting up of Node.js server and handling the API requests
 - The server is configured using the Express.js framework in the app.js file.
