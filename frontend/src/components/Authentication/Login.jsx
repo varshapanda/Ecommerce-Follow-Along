@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
 
 function LoginPage() {
   const [credentials, setCreds] = useState({
@@ -94,6 +95,9 @@ function LoginPage() {
               Login
             </button>
           </div>
+          <p className="text-center">
+            Don not have an account ? <Link to={'/Signup'}>Sign up</Link>
+          </p>
         </form>
       </div>
     </div>
