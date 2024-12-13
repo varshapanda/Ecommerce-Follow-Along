@@ -104,6 +104,47 @@ This project aims to create an interactive and user-friendly e-commerce platform
 - Custom Storage: Allows defining a storage destination and filename format.
 - Ease of Use: Simplifies handling file uploads in Express.js applications.
 
+## MILESTONE 5 : Creating the Signup page 
+
+### Overview
+
+In this milestone, the focus was on creating the frontend for the sign-up page, implementing form validation using RegEx, and setting up routing using React Router. This work ensures that users can seamlessly register on the platform while providing accurate and valid information.
+
+### 1. Created a Signup Page
+ Designed a clean and user-friendly signup page using HTML and  Taliwind CSS.
+#### The page includes the following input fields:
+- Name: For users to provide their full name.
+- Email: To capture the user's email address.
+- Password: To allow users to set up a secure password.
+- File Upload: Allows users to upload a file in .jpg, .jpeg, or .png format.
+
+### 2. Created Validation Object Using RegEx
+- Built a validation object using JavaScript Regular Expressions (RegEx) to ensure data accuracy.
+
+#### Validation rules include:
+   1. Name: Checks that the name is not empty and only contains valid characters.
+   2. Email: Validates that the email follows the standard email format (e.g., user@example.com)
+   3. Password: Ensures the password meets security criteria, including:
+- Minimum length of 8 characters, Contains at least one uppercase letter, one lowercase letter and one special character.
+- Added error messages for invalid inputs to guide users in correcting their data.
+- Added file upload handling to accept images in the specified formats.
+- Displayed error messages dynamically for invalid inputs, providing clear feedback to users for corrections.
+
+### 3. Setup React-Router for Present Pages
+
+- Integrated React Router to enable seamless navigation between pages.
+
+- Configured routes for the application, including:
+  1. Signup Page: /Signup
+  2. Login Page: /Login
+  3.  Home Page: /
+
+- Implemented navigation components to allow users to switch between pages effortlessly.
+- Updated the App component to include the necessary routes using <Routes> and <Route> from React Router.  
+
+
+
+
 
 
 
