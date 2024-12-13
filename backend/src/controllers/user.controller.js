@@ -1,7 +1,7 @@
-const ErrorHandler = require("../utils/ErrorHandler")
-const userModel = require("../models/user.model");
+const ErrorHandler = require("../utils/ErrorHandler.js")
+const userModel = require("../models/user.model.js");
 
-export  async function createUser(req,res){
+async function createUser(req,res){
     const {Name, email, password} = req.body;
     const checkUserPresent = await userModel.findOne({
         email:email,
@@ -17,3 +17,4 @@ export  async function createUser(req,res){
     await newUser.save();
     return res.send('User created successfully');
 }
+module.exports= createUser
