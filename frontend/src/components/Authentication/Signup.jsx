@@ -105,7 +105,7 @@ function Signup() {
             required
           />
         </div>
-
+        <p className="text-red">{error}</p>
         <button
           type="submit"
           onChange={handleSubmit}
