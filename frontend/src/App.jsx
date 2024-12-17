@@ -1,6 +1,7 @@
-import LoginPage from "./components/Authentication/Login";
-import Signup from "./components/Authentication/Signup";
-import { Routes, Route } from 'react-router-dom';
+import {Routes, Route} from 'react-router-dom';
+import HomePage from './Pages/HomePage'
+import Signup from './Pages/Signup'
+import Login from './Pages/Login';
 
 
 
@@ -8,13 +9,15 @@ function App() {
   return (
     <>
       {/* <LoginPage /> */}
-      {/* <Signup /> */}
+      {/* <SignupForm /> */}
+      <h1>Follow-along application</h1>
       <Routes>
-        <Route path="/" />
+        <Route path='/' element={<HomePage/>}/>
         <Route path="/Signup" element={<Signup/>} />
-        <Route path="/Login" element={<LoginPage />} />
+        <Route path="/Login" element={<Login/>} />
       </Routes>
     </>
-  );
+  )
 }
-export default App
+
+export default App;

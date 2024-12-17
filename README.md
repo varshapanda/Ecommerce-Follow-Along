@@ -227,6 +227,32 @@ The login route authenticates existing users.
 5. Send a Success Response:
    - Return a response confirming that the user has successfully logged in. 
 
+## MILESTONE 8 : Create a Card Component and design a Homepage Layout
+
+### 1. **Card Component**
+
+- **Reusable Design**: A **Card Component** was created to display the key details of each product. This component is flexible, meaning it can be reused for any product with different details. The card displays:
+  - Product name (`title`)
+  - Product image (`image`)
+  - Product price (`price`)
+  - Product description (`description`)
+
+  This ensures that the component is dynamic, allowing it to be used for various products without hardcoding values into the component.
+
+- **Dynamic Content**: 
+  - To make the card component truly dynamic, it receives props from its parent component. 
+  - These props include the product details like name, image URL, price, and description. 
+  - This design allows the component to render different products by simply passing in new data. 
+  - The `Card` component does not need to be modified for each new product; the data just needs to be passed correctly when rendering it.
+
+### 2. **Homepage Layout**
+
+- **Grid Layout**: 
+  - To ensure a visually organized and responsive display of product cards, a **grid layout** was implemented using **Tailwind CSS**. 
+  - This grid layout arranges the cards in rows and columns. Each card is placed in a flexible container, which adapts to the size of the screen. 
+  
+
+
 
 
 
