@@ -181,6 +181,55 @@ This milestone focuses on implementing email verification for user signup using 
 - Handle Errors: Return appropriate responses for invalid or expired tokens, and ensure robust error handling to prevent unauthorized access.
 
 
+## MILESTONE 7 : User Signup and Login with Password Encryption
+In this milestone, we implemented two essential routes: signup and login to handle user authentication. These routes ensure that user credentials are securely stored and validated.
+
+### Routes Implemented
+
+#### 1. Signup Route
+1. Extract User Data: 
+   - Receive user input sent via the request body: name, email, and password.
+2. Check if the User Already Exists:
+   - Query the database to see if an entry with the provided email already exists.
+   - If Yes, return a response saying:
+"User already present, please login directly."
+
+3. Hash the Password: 
+   - If the user is not already registered, hash the password to ensure it is securely stored.
+   - Use hashing libraries like Bcrypt.js for encryption.
+   - The original plain-text password is never stored in the database.
+4. Save the User Data to the Database:
+    - Create a new user entry with the following fields:
+       - name
+       - email
+       - hashed password
+5. Send a Success Response:
+
+   - Return a response confirming that the user has been successfully registered.
+
+
+#### 2. Login Route 
+The login route authenticates existing users.
+1. Extract User Data:
+   - Receive user credentials sent via the request body: email and password.
+2. Check if the User Exists in the Database:
+    - Query the database to find a user with the provided email.
+    - If No User Found → Return a response saying:
+"User not found, please signup first." 
+3. Validate the Password:
+
+    -  Compare the provided plain-text password with the hashed password stored in the database.
+    - Use a hashing library (e.g., Bcrypt) to handle the comparison securely.
+4. Generate an Authentication Token:
+   - If the password matches, generate a secure token (e.g., JWT) to manage user sessions.
+   - Send the token as a cookie for client-side storage. 
+
+5. Send a Success Response:
+   - Return a response confirming that the user has successfully logged in. 
+
+
+
+
 
 
 
