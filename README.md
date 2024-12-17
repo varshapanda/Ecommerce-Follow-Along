@@ -142,6 +142,43 @@ In this milestone, the focus was on creating the frontend for the sign-up page, 
 - Implemented navigation components to allow users to switch between pages effortlessly.
 - Updated the App component to include the necessary routes using <Routes> and <Route> from React Router.  
 
+## Milestone 6
+
+This milestone focuses on implementing email verification for user signup using JWT (JSON Web Tokens) and Nodemailer. By the end of this milestone, the application will:
+
+- Generate a JWT token during user signup.
+- Send a verification email with a link containing the token.
+- Verify the token to activate the user account.
+
+### 1. Generate a JWT Token at Signup
+
+- Check User Existence: Ensure the email provided by the user is not already in the database. If the user exists, return an error.
+
+- Create a New User: Save the user's details (such as name, email, and password) in the database. 
+
+- Generate JWT Token: Create a JWT token that encodes essential user information (e.g., name and email) and sign it with a secret key (SECRET_KEY) defined in your .env file. Set an appropriate expiration time for the token.
+
+### 2. Create a Verification Link with the Token
+
+- Construct the Link: After generating the token, create a verification link by appending the token as a query parameter. The link should point to the verification endpoint of your application, e.g., http://localhost:8080/user/activation/:token.
+
+- Store Token in Email: Ensure the generated link is included in the email body, providing users with clear instructions to verify their account.
+
+### 3. Configure Nodemailer to Send the Email with the Verification Link
+
+- Set Up Nodemailer: Use Nodemailer to configure an email transporter. Define SMTP settings, such as the service (e.g., Gmail) and authentication credentials.
+
+- Compose Email: Craft an email containing the verification link.
+
+- Send the Email: Trigger the email-sending function after successfully creating a user and generating the verification token.
+
+### 4. Create an Endpoint to Verify the Token and Activate the User
+
+- Token Verification Logic: In the verification endpoint, decode the JWT token using the secret key. Validate that the token has not expired and that its data matches the expected format.
+
+- Activate User: If the token is valid, locate the user in the database using the decoded information (e.g., email). Update their activation status to indicate their account is verified.
+
+- Handle Errors: Return appropriate responses for invalid or expired tokens, and ensure robust error handling to prevent unauthorized access.
 
 
 
