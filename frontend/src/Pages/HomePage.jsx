@@ -12,7 +12,7 @@ function HomePage() {
       <div className="grid grid-cols-3 gap-4">
         {data.map((ele, index) => {
           return (
-            <div key={index} style={{ margin: 'auto' }}>
+            <div key={index} style={{ margin: 'auto' }} className="border-white">
               <Card title={ele.title} Index={index} />
             </div>
           );
