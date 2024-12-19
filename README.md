@@ -252,7 +252,58 @@ The login route authenticates existing users.
   - This grid layout arranges the cards in rows and columns. Each card is placed in a flexible container, which adapts to the size of the screen. 
   
 
+## MILESTONE 9 : 
 
+### Overview
+In this milestone our goal was to create a product entry page for an e-commerce platform. The product entry form allows users to submit information about a product, including title, description, discounted and original prices, stock quantity, category, rating, and product images. Upon form submission, the product details are sent to a server using an HTTP POST request for further processing.
+
+#### 1. Setting Up the Project:
+- I used React, a popular JavaScript library for building user interfaces.
+- Axios, a promise-based HTTP client, was used to handle API requests for submitting the form data.
+
+#### 2. Creating the Product Entry Form:
+ - The form captures multiple product details through various form fields, including:
+   - Title
+   - Description
+   - Discounted price
+   - Original price
+   - Stock quantity
+   - Category
+   - Rating
+   - Product images
+- For each input, event handlers were created to update the form state whenever the user interacts with the fields.
+
+#### 3. Managing Form State:
+- React's useState hook was used to store and manage the form data as the user types in the fields.
+- This state includes the product title, description, rating, price details, quantity, category, and uploaded images.
+- A separate state variable tracks any input errors, which are displayed to the user if they fail to enter necessary details or if the values don't meet the validation requirements.
+
+#### 4. Handling File Upload:
+- An input element with the type="file" attribute was used to allow users to upload product images.
+- A change event handler captures the selected files, converting them into an array and storing them in the state.
+
+#### 5. Form Validation:
+- Before submitting the form, basic validation checks were implemented to ensure that all required fields are filled in and contain valid data.
+- If any of the conditions were not met, an error message is displayed to inform the user.
+
+#### 6. Form Data Submission:
+- Upon successful form validation, a FormData object was created to append the input data, including both text-based information (such as title and price) and the images (file paths).
+- This data is then sent to the server using Axios via an HTTP POST request. The server is assumed to handle the product data on the backend.
+
+#### 7. Routing:
+- The application used React Router to manage navigation between different pages. The user can navigate between the homepage, login, signup, and the product entry page.
+- Each route is linked to a specific component, with the ProductEntryPage being one of the primary components for submitting product details.
+
+#### 8. User Interface and Styling:
+- Tailwind CSS was used for styling the form and ensuring a responsive and user-friendly interface.
+- The form was designed with appropriate labels, input fields, and buttons to ensure a clean, accessible layout for users to easily submit product information.
+
+#### 9. Error Handling:
+- The form includes error handling that checks whether the input fields contain valid data and alerts the user if there are any missing or invalid inputs.
+- This includes checking if fields like price and quantity contain positive values and ensuring text fields are not left empty.
+
+#### 10. Product Entry Page Route (/product-entry-page):
+- In the App.jsx file, React Router was used to set up the navigation, this route is associated with the ProductEntryPage component. Users can navigate to this page to enter product details, including images, prices, and other attributes.
 
 
 
