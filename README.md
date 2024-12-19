@@ -306,6 +306,43 @@ In this milestone our goal was to create a product entry page for an e-commerce 
 - In the App.jsx file, React Router was used to set up the navigation, this route is associated with the ProductEntryPage component. Users can navigate to this page to enter product details, including images, prices, and other attributes.
 
 
+## MILESTONE 10: Product Schema and Endpoint Creation
+
+### Overview
+This part of the project is designed to handle product uploads in an e-commerce platform, where products are accompanied by images that are uploaded to a cloud storage service (Cloudinary) and stored in a database
+
+1. **Cloudinary Configuration (cloudinary.js)**
+    - *Setup Cloudinary*
+      - Initially, we integrated Cloudinary, a cloud-based image and video management service, to handle image uploads. We used the cloudinary package to communicate with Cloudinary’s API.
+      - The configuration is done using credentials, including cloud_name, api_key, and api_secret. These values are stored in environment variables for security and flexibility, and are loaded through the dotenv package.
+    - Environment-Based Configuration
+      - We conditionally loaded the environment variables only if the application is not in production. This ensures that the sensitive API keys are not exposed in the production environment.
+2. **Product Routes (product.route.js)**
+    - *Define the Route*
+      - A route for creating products (/create-product) was set up using Express.js. This route handles POST requests to add a new product to the platform.
+    - *Image Upload with Multer*
+      - We used the multer middleware to handle file uploads. It temporarily stores files in a folder (temp-uploads) before they are uploaded to Cloudinary. The upload.array('files', 5) specifies that a maximum of 5 files can be uploaded in a single request.
+   - *Route Handler Integration*
+      - The route handler for creating the product is linked to a controller function (createProductController), where the actual business logic for product creation happens.
+3. **Product Model (Product.model.js)**
+    - *Define the Schema*
+      - We created a Mongoose schema to define the structure of the product data in the database. Fields like title, description, rating, discountedPrice, originalPrice, quantity, and category were added as required fields, with validation in place for certain types (e.g., number or string).
+    - *Default Image and Enum Validation*
+      - A default image URL was provided in the schema in case no images are uploaded. The category field was set up as an enum to ensure it can only take one of three values: male, female, or kids.
+    - *Model Creation*
+      - Using the schema, we created a ProductModel using Mongoose’s model method. This model is used to interact with the MongoDB database to store product data.
+4. **Product Controller (Product.controller.js)**
+    - *Handle Product Creation*
+      - The createProductController is the core logic for handling product creation. It receives product data (e.g., title, description, price, etc.) and image files from the request body.
+    -  *Handle Image Uploads*
+       - For each uploaded image, we used the Cloudinary uploader.upload method to upload the file to Cloudinary’s cloud storage. Each file is uploaded individually, and once uploaded, we remove the local temporary file using fs.unlinkSync.
+    - *Save Product Data*
+      - After the images are uploaded and URLs are retrieved from Cloudinary, we save the product details to the database. The images are stored as an array of URLs in the product document.
+    - *Error Handling*
+       - Errors during the process, such as file upload issues (handled by multer) or server errors, are caught and responded to with appropriate error messages and status codes.
+5. **Temporary Uploads Folder (temp-uploads)**
+   - *Storage for Uploaded Files*
+     - The temp-uploads folder is used to temporarily store files before they are processed and uploaded to Cloudinary. This folder is managed by the multer middleware to handle file storage.
 
 
 

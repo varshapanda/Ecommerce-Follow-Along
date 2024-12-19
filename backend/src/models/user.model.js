@@ -1,11 +1,11 @@
 const mongoose = require('mongoose');
 
 const userSchema = new mongoose.Schema({
-    Name:{ type : String, require : [ true, 'Please Enter the Name...'] },
-    email: {type:String, require:[true, 'Please Enter Email..'], 
+    Name:{ type : String, required : [ true, 'Please Enter the Name...'] },
+    email: {type:String, required:[true, 'Please Enter Email..'], 
     unique:[true, 'Please enter Unique Email Address'],
     },
-    password:{type:String, require:[true, 'Plesae enter the password..']},
+    password:{type:String, required:[true, 'Plesae enter the password..']},
     address: [
         {city:String},
         {country:String},
@@ -16,8 +16,8 @@ const userSchema = new mongoose.Schema({
     ],
     role:{type:String, default:'user'},
     avatar:{
-        url:{type:String, require:true},
-        public_id:{type:String, require:true},
+        url:{type:String, required:true},
+        public_id:{type:String, required:true},
     },
     resetPasswordToken: String,
     resetPasswordTime: Date,
