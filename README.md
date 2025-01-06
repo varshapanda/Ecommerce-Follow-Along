@@ -388,6 +388,66 @@ This milestone focuses on creating an endpoint to fetch all product data from a 
 
 3. **Database Validation:** Verify that the data returned by the endpoint matches the data stored in the MongoDB collection.
 
+## Milestone 12: Product Display 
+
+### Overview
+- This milestone focuses on building an endpoint to send all product data to the frontend.
+- The data will be fetched from a MongoDB database and displayed dynamically on the frontend using a product card component.
+
+### 1.Backend Setup
+#### 1.1 Endpoint Creation
+- Create an endpoint `/product/get-products` to send all product data to the frontend.
+- The endpoint will send the product data in a response format, including fields like title, image, description, price, and ratings.
+
+#### 1.2 MongoDB Integration
+- MongoDB is used to store product data.
+- The backend will query MongoDB and retrieve all products and sending all available product data to the frontend.
+
+#### 1.3 CORS Setup
+- Cross-Origin Resource Sharing (CORS) is enabled to allow communication between the backend and frontend.
+- This ensures that the frontend can access the backend data without security issues.
+
+### 2. Frontend Setup
+#### 2.1 State Management and Data Fetching
+- A state variable (`data`) is used to store the fetched product data in the `HomePage.jsx` component.
+- Use `axios` to send a GET request to the backend API endpoint (`http://localhost:8080/product/get-products`) to fetch all product data.
+- The fetched data is stored in the `data` state variable.
+
+#### 2.2 Dynamic Rendering
+- The product data (title, image, description, price, etc.) is dynamically displayed by mapping through the `data` array.
+- Each product’s details are passed as props to individual `Card` components.
+
+#### 2.3 Displaying Data Dynamically
+- The `HomePage.jsx` component maps through the `data` state and dynamically generates `Card` components for each product.
+- The relevant product data (title, image, description, price, rating, etc.) is passed to the `Card` component as props.
+
+#### 2.4 Card Component
+- The `Card.jsx` component is responsible for displaying the product details.
+  - The `Card` component receives props like `title`, `image`, `description`, `discountedPrice`, `originalPrice`, and `rating`.
+  - It renders a stylized product card displaying the image, title, description, pricing, and rating.
+
+### 3. Execution Flow
+- When the homepage (`HomePage.jsx`) is loaded:
+  1. The frontend sends a GET request to the backend to fetch all product data.
+  2. The response data is stored in the state variable `data`.
+  3. The `data` is passed to individual `Card` components, which display the product details dynamically.
+
+### 4. Running Backend and Frontend
+- To run the backend and frontend locally, follow these steps:
+  1. **Start Backend**: In the backend project directory, run the following command:
+     ```bash
+     npm run dev
+     ```
+     This will start the backend server on `http://localhost:8080`.
+
+  2. **Start Frontend**: In the frontend project directory, run the following command:
+     ```bash
+     npm run dev
+     ```
+     This will start the frontend server on `http://localhost:5173`.
+
+  3. **Access Products Page**: Open your browser and navigate to `http://localhost:5173` to view the products page. The frontend will fetch product data from the backend and display it dynamically.
+
 
 
 
