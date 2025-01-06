@@ -347,6 +347,47 @@ This part of the project is designed to handle product uploads in an e-commerce 
 
 
 
+## Milestone 11: Writing the GET Endpoint to Fetch Product Data from MongoDB
+
+### Overview
+This milestone focuses on creating an endpoint to fetch all product data from a MongoDB database and send it to the client.
+
+### Key Objectives:
+1. Write a GET endpoint to fetch product data from the database.
+2. Test the endpoint to ensure it retrieves the required data correctly.
+
+---
+
+###  Backend: Writing the GET Endpoint
+
+1. **Controller Implementation:**
+   - Create a function in the controller to query the database for all product data using the product model.
+   - Return the fetched data along with a success message.
+   - Handle errors by sending an appropriate error message and status code.
+
+2. **Route Definition:**
+   - Define a GET route in the routes file.
+   - Link the route to the controller function responsible for fetching product data.
+   - Ensure proper response structure with HTTP status codes for both success and failure scenarios.
+
+---
+
+### Database Requirements
+- Ensure MongoDB is properly connected to the application.
+- Populate the database with sample product data for testing.
+- Validate that the product schema aligns with the data structure being fetched by the endpoint.
+
+---
+
+### Testing the Endpoint
+1. **Start the backend server:** Ensure the server is running and the endpoint is active.
+2. **Verify the functionality:** Use tools like Postman to make GET requests to the `/get-products` endpoint.
+   - Check if the response contains the product data.
+   - Confirm that the success message is returned.
+   - Test error handling by introducing potential failure scenarios (e.g., database connection issues).
+
+3. **Database Validation:** Verify that the data returned by the endpoint matches the data stored in the MongoDB collection.
+
 
 
 
