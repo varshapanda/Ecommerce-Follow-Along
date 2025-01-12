@@ -496,7 +496,37 @@ This milestone involves adding functionality to update existing product details.
    - Added a new route `/update-form/:id` to handle navigation to the product update form, passing the product ID in the URL.
    - The route loads the `UpdateForm` component, which is responsible for fetching and submitting updated data.
 
+## Milestone 14: Product Deletion
 
+### Overview:
+
+In Milestone 14, we implemented the functionality for deleting products. This includes a `DELETE` route in the backend to remove a product from the database by its `id`. On the frontend, a delete button is added to the product card. When clicked, the product's `id` is sent to the backend for deletion, and the frontend is updated to reflect the changes by fetching the updated list of products.
+
+### Backend Changes:
+
+1. **Added `deleteSingleProduct` in Product.controller.js**:
+   - Fetches the product using the `id` from `req.params`.
+   - If the product exists, it deletes the product from the database.
+   - Returns the updated list of products after deletion.
+   - If the product doesn't exist, it sends a 404 response with a "Product Not Found" message.
+
+2. **Created `DELETE` route for product deletion**:
+   - Adds a `DELETE` route to the `product.route.js` file.
+   - The route takes the product `id` as a parameter and calls the `deleteSingleProduct` method to handle the deletion.
+
+### Frontend Changes:
+
+1. **Added delete button in `Card` component**:
+   - A delete button (🗑️) is added next to the product information on the product card.
+   - When clicked, it triggers the `handleDelete` function, passing the product `id`.
+
+2. **Created `handleDelete` function**:
+   - Sends a `DELETE` request to the backend with the product `id`.
+   - After successful deletion, the product list is updated by fetching the latest data from the server.
+
+3. **Modified `HomePage` component**:
+   - Calls `handleDelete` when the delete button is clicked.
+   - Updates the product list on the page by calling the API again after a successful deletion.
 
 
 

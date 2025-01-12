@@ -18,10 +18,16 @@ function HomePage() {
   }, []);
   console.log(data);
 
+  const handleDelete = async (id) => {
+    console.log('id', id);
+    const data = await axios.delete(`http://localhost:8080/product/${id}`);
+    setdata(data.data.data);
+  };
+
   return (
     <>
-      <h1 className="text-3xl font-bold text-center text-gray-800 my-8">Home Page for Follow Along</h1>
-      <div className="grid grid-cols-3 gap-4">
+      <h1 className="text-3xl font-bold text-center text-gray-800 my-8">Home Page </h1>
+      <div className="grid grid-cols-4 gap-4">
         {data?.map((ele, index) => {
           return (
             <div key={index} style={{ margin: 'auto' }} className="border-white">
@@ -34,6 +40,7 @@ function HomePage() {
                 discountedPrice={ele.discountedPrice}
                 rating={ele.rating}
                 id={ele._id}
+                handleDelete={handleDelete}
               />
             </div>
           );
