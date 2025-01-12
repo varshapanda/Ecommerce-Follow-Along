@@ -18,6 +18,5 @@ app.get("/",(req,res)=>{
     return res.send("Welcome to backend");
 })
 app.use('/user', userRouter);
-
 app.use('/product', productRouter);
 module.exports = app;

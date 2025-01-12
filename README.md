@@ -448,6 +448,54 @@ This milestone focuses on creating an endpoint to fetch all product data from a 
 
   3. **Access Products Page**: Open your browser and navigate to `http://localhost:5173` to view the products page. The frontend will fetch product data from the backend and display it dynamically.
 
+## Milestone 13: Product Updation 
+
+### Overview
+This milestone involves adding functionality to update existing product details. When clicked on  "Update" button on the product card, which will pre-fill the form with the current data. After making changes and submitting, the product data will be updated in the MongoDB database.
+  
+  ### Backend Changes:
+
+1. **Added `updateProductController` method**:
+   - Handles updating product details (title, description, rating, prices, quantity, category, and images).
+   - Checks if the product exists before updating.
+   - If new images are uploaded, they are processed and uploaded to Cloudinary, replacing the existing images.
+   - Updates the product in the database using `findByIdAndUpdate`.
+
+2. **Added `getSingleProductDocumentController` method**:
+   - Fetches a single product by ID.
+   - Provides the product details to pre-fill the form on the frontend.
+
+3. **Created `PUT /update-products/:id` route**:
+   - Maps to the `updateProductController` method for handling the product update request.
+   - Accepts product data and images to update the existing product.
+
+4. **Created `GET /get-single/:id` route**:
+   - Maps to the `getSingleProductDocumentController` method for fetching a single product's details by ID.
+   - Returns the data to auto-fill the update form on the frontend.
+
+---
+###  Frontend Changes:
+
+1. **Created the Update Form (`UpdateForm` component)**:
+   - Retrieves the current product data by ID using the `GET /get-single/:id` route and auto-fills the form.
+   - Allows users to edit product details (title, description, price, etc.).
+   - Supports file input for uploading new images.
+   - Sends a `PUT` request with the updated product details and images to the backend for updating.
+
+2. **Modified `handleChange` function**:
+   - Updates the state of the form inputs dynamically as the user makes changes.
+   - Manages form input values for fields such as title, description, discounted price, etc.
+
+3. **Implemented image upload handling**:
+   - Allows users to upload new images for the product, appending them to the form data before submission.
+
+4. **Updated `handleSubmit` function**:
+   - Collects all the form data and sends it to the backend in the form of `FormData`, including any new images or existing image URLs.
+
+5. **Created routing for product update page**:
+   - Added a new route `/update-form/:id` to handle navigation to the product update form, passing the product ID in the URL.
+   - The route loads the `UpdateForm` component, which is responsible for fetching and submitting updated data.
+
 
 
 

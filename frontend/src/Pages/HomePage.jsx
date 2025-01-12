@@ -10,7 +10,7 @@ function HomePage() {
 
   }
   useEffect(() => {
-
+    console.log('clicked');
     const callhandle = async () => {
       await fetchProduct();
     };
@@ -20,8 +20,7 @@ function HomePage() {
 
   return (
     <>
-      <h1 className="text-center">Home Page for Follow Along</h1>
-
+      <h1 className="text-3xl font-bold text-center text-gray-800 my-8">Home Page for Follow Along</h1>
       <div className="grid grid-cols-3 gap-4">
         {data?.map((ele, index) => {
           return (
@@ -34,6 +33,7 @@ function HomePage() {
                 originalPrice={ele.originalPrice}
                 discountedPrice={ele.discountedPrice}
                 rating={ele.rating}
+                id={ele._id}
               />
             </div>
           );
