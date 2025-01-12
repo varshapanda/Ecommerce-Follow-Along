@@ -1,7 +1,9 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import { useParams } from 'react-router';
 import axios from 'axios';
 
-function ProductEntryPage() {
+function UpdateForm() {
+  const { id } = useParams();
   const [formData, setFormData] = useState({
     title: '',
     description: '',
@@ -12,7 +14,7 @@ function ProductEntryPage() {
     category: '',
   });
   const [errorInput, setInputError] = useState('');
-  const [Images, setImages] = useState(null);
+  const [Images, setImages] = useState();
 
   const handleImageUpload = (e) => {
     const ImagesArray = Array.from(e.target.files);
@@ -31,7 +33,7 @@ function ProductEntryPage() {
     console.log(formData);
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     console.log(formData);
     console.log(Images);
@@ -66,18 +68,52 @@ function ProductEntryPage() {
     formDataBody.append('rating', rating);
 
     console.log(Images)
-    Images.map((ele) => {
-      formDataBody.append('files', ele);
-    });
+    if (Images) {
+        Images?.map((ele) => {
+          formDataBody.append('files', ele);
+        });
+      } else {
+        formDataBody.append('images', formData.images);
+      }
+  
+      console.log('formDataBody', formDataBody);
+      console.log('Images', Images);
+      console.log('formData.images', formData);
 
-    console.log(formDataBody);
-
-    axios.post('http://localhost:8080/product/create-product', formData, {
-      headers: {
-        'Content-Type': 'multi-part/form-data',
-      },
-    });
+      // eslint-disable-next-line no-unused-vars
+      let requestdata = await axios
+      .put(
+        `http://localhost:8080/product/update-products/${id}`,
+        formDataBody,
+        {
+          headers: {
+            'Content-Type': 'multipart/form-data',
+          },
+        }
+      )
+      .then((res) => {
+        console.log(res.data);
+        return res;
+      })
+      .catch((er) => {
+        console.log('error', er);
+        return er;
+      });
   };
+  useEffect(() => {
+    const getDataForId = async () => {
+      const singleData = await axios.get(
+        `http://localhost:8080/product/get-single/${id}`
+      );
+      console.log(singleData);
+      setFormData(singleData.data.data);
+      setImages(singleData.data.data.images);
+      console.log('Images', Images);
+    };
+
+    getDataForId();
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [id]);
 
   return (
     <div className="flex justify-center items-center min-h-screen bg-gray-100 py-10">
@@ -199,4 +235,4 @@ function ProductEntryPage() {
   );
 }
 
-export default ProductEntryPage;
+export default UpdateForm;
