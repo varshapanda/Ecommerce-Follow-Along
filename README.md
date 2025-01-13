@@ -529,6 +529,35 @@ In Milestone 14, we implemented the functionality for deleting products. This in
    - Updates the product list on the page by calling the API again after a successful deletion.
 
 
+## MILESTONE 15: Responsive Navbar Component
+
+### Overview
+
+This project implements a **Responsive Navbar Component** using React. It facilitates smooth navigation across multiple pages in the application and ensures responsiveness on all screen sizes.
+
+
+- Created a **Navbar Component** with navigation links for:
+  - **Home**: The main landing page of the application.
+  - **My Products**: A page to view the list of user-added products.
+  - **Add Products**: A form to add new products to the application.
+  - **Cart**: A page to view items added to the shopping cart.
+
+- Made the **Navbar Responsive**:
+  - Designed a horizontal layout for desktop users.
+  - Implemented a hamburger menu for mobile users to display navigation links in a dropdown format.
+
+- Added a **Mobile Menu Toggle**:
+  - Used a hamburger icon that opens and closes the navigation menu on smaller screens.
+  - The menu automatically closes when a link is clicked to enhance the user experience.
+
+- Highlighted the **Active Navigation Link**:
+  - Added dynamic styling to indicate the currently active page.
+
+- Integrated the Navbar into all application pages:
+  - Ensured smooth transitions between pages using **React Router**.
+
+- Improved the mobile experience:
+  - Focused on usability by making the menu visually appealing and interactive for smaller screens.
 
 
 
