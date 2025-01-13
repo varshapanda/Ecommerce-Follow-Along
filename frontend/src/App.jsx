@@ -5,6 +5,7 @@ import Login from './Pages/Login';
 import ProductEntryPage from './Pages/ProductEntryPage';
 import UpdateForm from './Pages/UpdateForm';
 import Navbar from './components/navbar/navbar';
+import SingleProductPage from './Pages/SingleProductPage';
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
         <Route path="/Login" element={<Login/>} />
         <Route path="/product-entry-page" element={<ProductEntryPage />} />
         <Route path="/update-form/:id" element={<UpdateForm />} />
+        <Route path="/product-details/:id" element={<SingleProductPage />} />
       </Routes>
     </>
   )
