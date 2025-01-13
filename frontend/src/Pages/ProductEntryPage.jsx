@@ -72,9 +72,9 @@ function ProductEntryPage() {
 
     console.log(formDataBody);
 
-    axios.post('http://localhost:8080/product/create-product', formData, {
+    axios.post('http://localhost:8080/product/create-product', formDataBody, {
       headers: {
-        'Content-Type': 'multi-part/form-data',
+        "Content-Type": "multipart/form-data",
       },
     });
   };

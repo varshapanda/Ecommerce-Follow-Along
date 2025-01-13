@@ -560,6 +560,33 @@ This project implements a **Responsive Navbar Component** using React. It facili
   - Focused on usability by making the menu visually appealing and interactive for smaller screens.
 
 
+## MILESTONE 16 : Single Product Details Page & Image Modal Component
+
+### Added Single Page Product Details
+
+The Single Page Product Details feature displays detailed information about a specific product when a user clicks on it. The page includes the product image gallery, description, price, and action buttons such as "Add to Cart" and "Wishlist."
+
+**Key Features:**
+- **Product Image Gallery**: Displays product images, where users can click to view a larger version in a modal.
+- **Product Information**: Shows the brand, title, rating, price, and discount information.
+- **Action Buttons**: Allows users to add the product to the cart or wishlist.
+- **Responsive Layout**: Uses Tailwind CSS to create a responsive layout that adapts to different screen sizes.
+
+### Created Image Modal Component
+
+The Image Modal component displays a larger version of the product images when clicked. It allows users to navigate between images using arrow buttons and view a slideshow of the product's images.
+
+**Key Features:**
+- **Image Viewer**: Displays the selected product image in full-screen mode.
+- **Image Navigation**: Users can navigate between images using left and right arrow buttons.
+- **Thumbnail Navigation**: Displays small thumbnails of all images at the bottom of the modal to indicate the current image.
+
+
+## Routing in `App.jsx`
+
+The product details page is accessed through the route `/product-details/:id`, where `:id` is the unique identifier of the product. The `SingleProductPage` component is rendered when this route is visited.
+
+
 
 
 
