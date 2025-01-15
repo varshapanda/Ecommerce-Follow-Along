@@ -15,6 +15,7 @@ const SchemaObject = {
         'https://i.pinimg.com/474x/31/6c/ec/316cec65feecd9de3b24143aa928d371.jpg',
     },
   ],
+  userEmail : { type:String},
 };
 
 const productSchema = new mongoose.Schema(SchemaObject, { versionKey: false });
