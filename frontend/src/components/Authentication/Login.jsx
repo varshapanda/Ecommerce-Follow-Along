@@ -1,5 +1,7 @@
+import axios from 'axios';
 import { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+
 
 function LoginPage() {
   const [credentials, setCreds] = useState({
@@ -7,6 +9,7 @@ function LoginPage() {
     password: '',
   });
 
+  const navigate = useNavigate();
   const handleChange = (event) => {
     const { name, value } = event.target;
     console.log(name, value);
@@ -16,10 +19,13 @@ function LoginPage() {
     });
   };
 
-  const handleClickLogin = () => {
+  const handleClickLogin = async () => {
     // axios request to backend
+    const response = await axios.post('http://localhost:8080/user/login');
+    localStorage.setItem('token', response.data.token);
     console.log("Logging in with:", credentials);
-  };
+    navigate('/');
+  }
 
   return (
     <div className="flex min-h-full flex-col justify-center px-6 py-12 lg:px-8">
@@ -31,7 +37,7 @@ function LoginPage() {
       </div>
 
       <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
-        <form className="space-y-6" onSubmit={(e) => e.preventDefault()}>
+        <form className="space-y-6" onSubmit={handleClickLogin}>
           <div>
             <label
               htmlFor="email"
