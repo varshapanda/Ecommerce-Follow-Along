@@ -608,6 +608,15 @@ This milestone focuses on setting up a foundational structure for the cart funct
 - **Integration in `app.js`**  
   Registers the cart routes under the `/cart` path to make the cart-related endpoints functional.
 
+## Milestone 18
+This milestone focuses on creating functionality to retrieve cart data for a user.
 
+- **Cart Route (`cart.route.js`)**  
+  Adds the `/get-user-cart-data` endpoint to fetch the user's cart items, connected to the `GetProductsForUser` controller.
+
+- **Cart Controller (`cart.controller.js`)**  
+  Implements the logic to retrieve all cart items for the authenticated user:
+  - Validates the `userId`.
+  - Fetches cart data for the user from the database.
 
 
