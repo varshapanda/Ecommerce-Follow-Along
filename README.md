@@ -587,6 +587,27 @@ The Image Modal component displays a larger version of the product images when c
 The product details page is accessed through the route `/product-details/:id`, where `:id` is the unique identifier of the product. The `SingleProductPage` component is rendered when this route is visited.
 
 
+## Milestone 17 
+This milestone focuses on setting up a foundational structure for the cart functionality and enable adding products to the cart.
+
+- **Cart Schema (`cart.model.js`)**  
+  Defines the structure for cart data in the database, including fields for `productId`, `quantity`, and `userId`.
+
+- **Cart Route (`cart.route.js`)**  
+  Creates the `/add-to-cart` endpoint and links it to the `AddToCartController`.
+
+- **Cart Controller (`cart.controller.js`)**  
+  Implements the logic for adding products to the cart:
+  - Validates the `productId` and `userId`.
+  - Checks if the product already exists in the user's cart.
+  - Adds the product to the cart if all conditions are met.
+
+- **Middleware (`jwt-verify.js`)**  
+  Ensures only authorized users can access cart-related routes by verifying the user token and attaching the `userId` to the request.
+
+- **Integration in `app.js`**  
+  Registers the cart routes under the `/cart` path to make the cart-related endpoints functional.
+
 
 
 
