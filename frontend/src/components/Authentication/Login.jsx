@@ -19,13 +19,18 @@ function LoginPage() {
     });
   };
 
-  const handleClickLogin = async () => {
-    // axios request to backend
-    const response = await axios.post('http://localhost:8080/user/login');
-    localStorage.setItem('token', response.data.token);
-    console.log("Logging in with:", credentials);
-    navigate('/');
-  }
+  const handleSubmit = async (event) => {
+    event.preventDefault(); // Prevent form from reloading the page
+    try {
+      const response = await axios.post('http://localhost:8080/user/Login', credentials);
+      localStorage.setItem('token', response.data.token);
+      console.log('Logged in successfully:', credentials);
+      navigate('/');
+    } catch (error) {
+      console.error('Error during login:', error);
+      alert('Login failed. Please check your credentials.');
+    }
+  };
 
   return (
     <div className="flex min-h-full flex-col justify-center px-6 py-12 lg:px-8">
@@ -37,7 +42,7 @@ function LoginPage() {
       </div>
 
       <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
-        <form className="space-y-6" onSubmit={handleClickLogin}>
+      <form className="space-y-6" onSubmit={handleSubmit}>
           <div>
             <label
               htmlFor="email"
@@ -94,8 +99,7 @@ function LoginPage() {
 
           <div>
             <button
-              type="button"
-              onClick={handleClickLogin}
+              type="submit"
               className="flex w-full justify-center bg-blue-600 px-3 py-1.5 text-sm/6 font-semibold text-white shadow-sm hover:bg-blue-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600"
             >
               Login
