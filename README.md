@@ -688,5 +688,7 @@ This milestone involves creating a user profile page where the user can view the
   - Axios is used in `ProfileCard.jsx` to make a GET request to fetch the user data from the backend using the stored JWT token for authentication.
 
 
-
+## Milestone 21
+- Created address form frontend page and also created the state that will store input address
+- Added the /address route in App.jsx 
 

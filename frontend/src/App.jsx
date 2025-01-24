@@ -7,6 +7,7 @@ import UpdateForm from './Pages/UpdateForm';
 import SingleProductPage from './Pages/SingleProductPage';
 import CartPage from './Pages/CartPage';
 import ProfilePage from './Pages/Profile';
+import AddressCard from './components/AddressComp/AddressCard';
 import Navbar from './components/navbar/navbar';
 
 function App() {
@@ -25,6 +26,7 @@ function App() {
         <Route path="/product-details/:id" element={<SingleProductPage />} />
         <Route path="/cart" element={<CartPage/>} />
         <Route path="/profile" element={<ProfilePage />} />
+        <Route path="/address" element={<AddressCard />} />  
       </Routes>
     </>
   )
