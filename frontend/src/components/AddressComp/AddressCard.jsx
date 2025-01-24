@@ -1,29 +1,40 @@
-import React from "react";
-import {useState} from 'react';
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import axios from "axios";
 
-const AddressCard = ()=>{
-    const [city, setCity] = useState('');
-    const [country, setCountry] = useState('');
-    const [add1, setAdd1] = useState('');
-    const [add2, setAdd2] = useState('');
-    const [zipCode, setZipCode] = useState('');
-    const [addressType, setAddressType] = useState('');
+const AddressCard = () => {
+  const [city, setCity] = useState("");
+  const [country, setCountry] = useState("");
+  const [add1, setAdd1] = useState("");
+  const [add2, setAdd2] = useState("");
+  const [zipCode, setZipCode] = useState("");
+  const [addressType, setAddressType] = useState("");
+  const navigate = useNavigate();
 
-    const handleSubmit = (e)=>{
-        e.preventDefault();
-        const addressData={
-            city,
-            country,
-            address1,
-            address2,
-            zipCode,
-            addressType,
-        };
-        console.log(addressData);
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    const addressData = {
+      city,
+      country,
+      address1: add1,
+      address2: add2,
+      zipCode,
+      addressType,
+    };
+    console.log(addressData);
+    const token = localStorage.getItem("token");
+    if (!token) {
+      return alert("Token missing");
     }
+    const response = await axios.post(
+      `http://localhost:8080/user/add-address?token=${token}`,
+      addressData
+    );
+    navigate("/profile");
+  };
 
-    return(
-        <div className="max-w-md mx-auto p-6 bg-white shadow-lg rounded-lg">
+  return (
+    <div className="max-w-md mx-auto p-6 bg-white shadow-lg rounded-lg">
       <h2 className="text-2xl font-semibold text-center mb-6">Address Form</h2>
       <form onSubmit={handleSubmit} className="space-y-4">
         <input
@@ -79,8 +90,7 @@ const AddressCard = ()=>{
         </button>
       </form>
     </div>
-    )
-
-}
+  );
+};
 
 export default AddressCard;
