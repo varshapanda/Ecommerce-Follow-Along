@@ -692,3 +692,59 @@ This milestone involves creating a user profile page where the user can view the
 - Created address form frontend page and also created the state that will store input address
 - Added the /address route in App.jsx 
 
+## Milestone 22
+
+### API Endpoints
+
+#### Add Address
+- **Endpoint**: `POST /user/add-address`
+- **Description**: This endpoint allows users to add a new address to their profile.
+- **Required Fields**:
+  - `city`: Name of the city.
+  - `country`: Name of the country.
+  - `address1`: Primary address line.
+  - `address2`: Secondary address line (optional).
+  - `zipCode`: Postal or ZIP code.
+  - `addressType`: Type of address (e.g., home, office).
+
+#### Delete Address
+- **Endpoint**: `DELETE /user/delete-address/:id`
+- **Description**: This endpoint deletes an address from the user's profile using the address's unique ID.
+
+
+### Frontend - ProfileCard Component
+
+The **ProfileCard** component is used to display the user's profile information, including their addresses. It includes the following sections:
+- **User Info**: Displays the user's avatar, name, email, role, and user ID.
+- **Address List**: Displays all addresses stored for the user, with an option to delete each address.
+- The component fetches user data from the backend using the `getUserData` function, which makes an API call to `/user/user-data` with the user's token.
+
+#### Delete Address Functionality
+- The `handleDeleteAddy` function is used to delete an address by its ID. This function is triggered when the delete button is clicked for a specific address.
+- The function sends a `DELETE` request to the backend (`/user/delete-address/:id`) and reloads the user data after the deletion.
+
+---
+
+### Backend - User Controller
+
+The **AddAddressController** and **DeleteAddyController** handle adding and deleting addresses in the user's profile.
+
+#### Add Address Controller (`AddAddressController`)
+- This function adds a new address to the `address` array in the user's profile.
+- It first verifies the user's existence, then adds the address details to the user's document in the database and saves it.
+
+#### Delete Address Controller (`DeleteAddyController`)
+- This function deletes an address by its ID from the user's `address` array.
+- It checks the validity of the address ID and the user before performing the delete operation.
+- After deleting the address, it returns the updated user profile.
+
+---
+
+### Backend - User Route
+
+The **user.route.js** file contains the routes for adding and deleting addresses.
+
+- `POST /user/add-address`: This route maps to the **AddAddressController** to add a new address.
+- `DELETE /user/delete-address/:id`: This route maps to the **DeleteAddyController** to delete an address by its ID.
+
+---

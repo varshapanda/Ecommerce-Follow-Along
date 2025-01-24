@@ -37,6 +37,24 @@ export function ProfileCard() {
     };
     getUserData();
   }, []);
+
+  const handleDeleteAddy = async (id) => {
+    const token = localStorage.getItem('token');
+    try {
+      if (!token) {
+        return alert('Token missing');
+      }
+      const response = await axios.delete(
+        `http://localhost:8080/user/delete-address/${id}?token=${token}`
+      );
+      getUserData();
+    } catch (er) {
+      console.log(er.response.message);
+    }
+  };
+  
+
+
   return (
     <div className="min-h-screen bg-gray-50 p-4">
       <Card className="max-w-2xl mx-auto">
@@ -133,13 +151,24 @@ export function ProfileCard() {
                 <circle cx="12" cy="10" r="3" />
               </svg>
             }
-            label="Addresses"
+            label="Address"
             value={
               userData?.address?.length > 0 ? (
                 <ul className="list-disc list-inside">
-                  {/* {userData.address.map((addr, index) => (
-                      <li key={index}>{addr}</li>
-                    ))} */}
+                  { userData.address.map((SingleAddy, index)=>(
+                    <>
+                     <button 
+                     onClick={() => handleDeleteAddy(SingleAddy._id)} 
+                     className="text-red-500 hover:text-red-700 text-sm font-semibold transition-colors duration-200">
+                        Delete 
+                      </button>
+                    <li key={index}>City: {SingleAddy.city}</li>
+                    <li key={index}>Country: {SingleAddy.country}</li>
+                    <li key={index}>Address 1: {SingleAddy.address1}</li>
+                    <li key={index}>Address 2: {SingleAddy.address2}</li>
+                    <li key={index}>Pin code: {SingleAddy.zipCode}</li>
+                    </>
+                  ))}
                 </ul>
               ) : (
                 <span className="text-gray-400 italic">
