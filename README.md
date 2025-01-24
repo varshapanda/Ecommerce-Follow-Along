@@ -642,5 +642,51 @@ The Cart Page is designed to display products added to a user's cart by fetching
      - Sends a GET request to the `/cart/get-user-cart-data` API to fetch cart details.  
      - Maps over the retrieved data to render each cart item using the `CartCard` component.  
 
+## Milestone 20: User Profile Feature
+
+### Overview : 
+This milestone involves creating a user profile page where the user can view their profile photo, name, email, and addresses. The backend function `getUSerData` provides the necessary user data to the frontend, which is then displayed using the `ProfileCard` component.
+
+
+
+### Backend
+
+#### 1. **User Controller (`user.controller.js`)**
+
+- **Functionality**:
+  - `getUSerData`: This function fetches user data from the database using the user's ID, which is retrieved from the JWT token. It checks for a valid user ID, fetches the user details, and returns them to the frontend. If the user is not found, it responds with an error.
+
+#### 2. **User Routes (`user.route.js`)**
+
+- **Purpose**: Defines API routes for user actions such as fetching user data.
+- **Routes**:
+  - `GET /user-data`: Fetches user data after verifying the JWT token.
+
+### Frontend
+
+#### 1. **App (`App.jsx`)**
+
+- **Purpose**: Defines the main routes of the application.
+- **Route**:
+  - `/profile`: This route renders the `ProfilePage` component, which displays the user's profile data.
+
+#### 2. **Profile Page (`Profile.jsx`)**
+
+- **Purpose**: Contains the `ProfileCard` component, which is responsible for rendering the user's profile details (name, email, avatar, etc.).
+- **Component Used**:
+  - `ProfileCard`: Displays the user’s profile details, including their avatar, name, email, and address.
+
+#### 3. **Profile Card (`ProfileCard.jsx`)**
+
+- **Purpose**: Displays detailed user information such as the profile photo, name, email, and address.
+- **Features**:
+  - Displays the user’s avatar from Cloudinary.
+  - Shows the user’s name, email, and role.
+  - Displays a list of the user’s addresses, or shows "No address found" if no address is available.
+  - Includes an "Edit Profile" button (currently non-functional).
+  - Fetches user data from the backend using a GET request to `/user/user-data` and displays it accordingly.
+  - Axios is used in `ProfileCard.jsx` to make a GET request to fetch the user data from the backend using the stored JWT token for authentication.
+
+
 
 
