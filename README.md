@@ -620,3 +620,27 @@ This milestone focuses on creating functionality to retrieve cart data for a use
   - Fetches cart data for the user from the database.
 
 
+## MILESTONE 19
+
+### Overview  
+The Cart Page is designed to display products added to a user's cart by fetching data dynamically from the backend. It uses React components and a REST API to create an interactive user interface for managing cart details.
+
+1. **CartCard Component**:  
+   - **Purpose**: Renders the UI for individual cart items.  
+   - **Props**: Accepts product-specific data like `title`, `image`, `description`, `originalPrice`, `discountedPrice`, and `id`.  
+   - **Features**:
+     - Displays product details (title, price, description, seller information).   
+     - Links to the product details page using the `id`.  
+
+2. **CartPage Component**:  
+   - **Purpose**: Fetches cart data from the backend and renders a list of `CartCard` components.  
+   - **Hooks Used**:
+     - `useState`: To store the user's cart data.
+     - `useEffect`: To trigger data fetching when the component loads.  
+   - **Functionality**:
+     - Retrieves the user's token from `localStorage` for authentication.
+     - Sends a GET request to the `/cart/get-user-cart-data` API to fetch cart details.  
+     - Maps over the retrieved data to render each cart item using the `CartCard` component.  
+
+
+
