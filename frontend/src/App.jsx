@@ -4,9 +4,10 @@ import Signup from './Pages/Signup'
 import Login from './Pages/Login';
 import ProductEntryPage from './Pages/ProductEntryPage';
 import UpdateForm from './Pages/UpdateForm';
-import Navbar from './components/navbar/navbar';
 import SingleProductPage from './Pages/SingleProductPage';
 import CartPage from './Pages/CartPage';
+import ProfilePage from './Pages/Profile';
+import Navbar from './components/navbar/navbar';
 
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
         <Route path="/update-form/:id" element={<UpdateForm />} />
         <Route path="/product-details/:id" element={<SingleProductPage />} />
         <Route path="/cart" element={<CartPage/>} />
+        <Route path="/profile" element={<ProfilePage />} />
       </Routes>
     </>
   )
