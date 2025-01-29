@@ -782,3 +782,25 @@ The **user.route.js** file contains the routes for adding and deleting addresses
 - **Implemented click functionality** to select an address.
 - **Stored the selected address** in `localStorage`.
 - **Navigated to the order confirmation page** upon selection.
+
+
+## Milestone 24 
+
+### Frontend
+
+#### Routing
+- **Added a new route** for the "Order Confirmation" page in `App.jsx`.
+- **Defined a `<Route>` for `/order-confirmation`** and linked it to `OrderConfirmation` component.
+
+#### Order Confirmation Page
+- **Imported `useEffect` and `useState`** to handle API calls and manage state.
+- **Fetched user’s cart data** from the backend using an API request.
+- **Retrieved the selected address** from `localStorage` and stored it in state.
+- **Calculated the total order value** by iterating over the cart data.
+- **Displayed the selected delivery address** dynamically.
+- **Mapped over the cart data** to render each product using the `CartCard` component.
+- **Added a "Confirm Order" button** at the bottom.
+
+#### Cart Card Component
+- **Updated the `CartCard` component** to correctly display the product image.
+- **Used the first image from the images array** instead of the `image` prop.
