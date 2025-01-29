@@ -748,3 +748,37 @@ The **user.route.js** file contains the routes for adding and deleting addresses
 - `DELETE /user/delete-address/:id`: This route maps to the **DeleteAddyController** to delete an address by its ID.
 
 ---
+
+
+## Milestone 23
+
+### Backend
+
+- **Created a new API endpoint** to fetch user addresses.
+- **Implemented JWT authentication middleware** for secure access.
+- **Validated user ID format** before querying the database.
+- **Retrieved addresses from the database** and sent them in the response.
+- **Handled error cases** for invalid users and server issues.
+- **Added the new route** in `user.route.js`.
+
+### Frontend
+
+#### Routing
+- **Added a new route** for the "Select Address" page in `App.jsx`.
+- **Linked the "Checkout" button** in the cart page to navigate to the address selection page.
+
+#### Cart Page
+- **Implemented a "Checkout" button** using `Link` to navigate to `/select-address`.
+
+#### Address Selection Page
+- **Fetched user addresses** from the backend on component mount using `useEffect`.
+- **Retrieved JWT token** from `localStorage` and included it in API requests.
+- **Stored the fetched addresses** in a state variable.
+- **Passed the addresses** to the `AddressList` component for rendering.
+
+#### Address List Component
+- **Displayed available addresses dynamically**.
+- **Handled cases** where no addresses were found.
+- **Implemented click functionality** to select an address.
+- **Stored the selected address** in `localStorage`.
+- **Navigated to the order confirmation page** upon selection.
