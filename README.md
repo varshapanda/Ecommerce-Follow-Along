@@ -804,3 +804,26 @@ The **user.route.js** file contains the routes for adding and deleting addresses
 #### Cart Card Component
 - **Updated the `CartCard` component** to correctly display the product image.
 - **Used the first image from the images array** instead of the `image` prop.
+
+
+## Milestone 25
+
+### **Backend**
+
+#### **Order Model (`Order.model.js`)**
+- Defined Order schema using Mongoose.
+- Includes **user reference, order items, shipping address, total amount, and order status**.
+- **Order status options**: `Processing`, `Shipped`, `Delivered`, `Cancelled`.
+- Stores **timestamps** for order creation and updates.
+
+#### **Order Route (`order.route.js`)**
+- Created a new endpoint **(`POST /confirm-order`)** to handle order creation.
+- Added **JWT authentication middleware (`verifyToken`)** to secure the endpoint.
+
+#### **Order Controller (`order.controller.js`)**
+- Extracts **userId** from the request after authentication.
+- Validates **user existence** before processing the order.
+- Checks for **valid product items** in the request body.
+- **Creates a separate order entry** for each product using the same address.
+- Stores order details in **MongoDB** using the **Order schema**.
+- Responds with **success or error messages** based on the outcome.
