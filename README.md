@@ -827,3 +827,26 @@ The **user.route.js** file contains the routes for adding and deleting addresses
 - **Creates a separate order entry** for each product using the same address.
 - Stores order details in **MongoDB** using the **Order schema**.
 - Responds with **success or error messages** based on the outcome.
+
+
+
+## Milestone 26
+
+### **Backend Changes**
+
+#### **`backend/src/app.js`**
+- Added `OrderRouter` to handle order-related routes.
+- Ensured environment variables are loaded correctly in non-production environments.
+- Connected database and initialized the server.
+
+#### **`backend/src/controllers/order.controller.js`**
+- Added `GetUserOrdersController` to:
+  - Validate the `userId` before processing.
+  - Check if the user exists in the database.
+  - Retrieve all orders for the user from the `OrderModel`.
+  - Return the fetched data in the response.
+
+#### **`backend/src/routes/order.route.js`**
+- Added route `GET /user-orders-data` to fetch all orders for a user.
+- Ensured JWT authentication is applied to secure the endpoint.
+- Updated order-related routes for clarity and structure.

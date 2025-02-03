@@ -2,6 +2,7 @@ const express = require('express');
 const cors = require('cors');
 const userRouter = require('./routes/user.route.js')
 const cartRouter = require('./routes/cart.route.js')
+const orderRouter = require('./routes/order.route.js')
 
 const productRouter = require('./routes/product.route.js');
 if(process.env.NODE_ENV !=='PRODUCTION'){
@@ -23,4 +24,5 @@ app.get("/",(req,res)=>{
 app.use('/user', userRouter);
 app.use('/product', productRouter);
 app.use('/cart', cartRouter);
+app.use('/orders', orderRouter);
 module.exports = app;
