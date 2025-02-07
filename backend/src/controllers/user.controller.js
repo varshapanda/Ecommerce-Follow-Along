@@ -8,7 +8,7 @@ const fs = require("fs");
 const { default : mongoose} = require('mongoose');
 
 require("dotenv").config({
-  path: "../config/.env",
+  path: "../config/.ereturn nv",
 });
 
 async function createUser(req, res) {

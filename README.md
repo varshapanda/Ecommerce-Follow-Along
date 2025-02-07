@@ -850,3 +850,39 @@ The **user.route.js** file contains the routes for adding and deleting addresses
 - Added route `GET /user-orders-data` to fetch all orders for a user.
 - Ensured JWT authentication is applied to secure the endpoint.
 - Updated order-related routes for clarity and structure.
+
+
+## MILESTONE 27
+
+### Backend
+
+#### Endpoints
+- **POST /orders/confirm-order**: 
+   - This endpoint allows users to confirm their orders.
+   - It creates a new order, associates it with the user, and deletes the items from the cart after successful order creation.
+   - It expects the following data:
+     - `Items`: Cart items to be ordered
+     - `address`: Shipping address
+     - `totalAmount`: Total amount for the order
+   - Returns a success message with the order details.
+
+- **GET /orders/user-orders-data**:
+   - This endpoint fetches all the orders for a specific user, excluding canceled orders.
+   - It returns the order details, including the products associated with the order.
+
+### Frontend
+
+#### Pages
+- **Order Confirmation Page**:
+   - Users can view the cart and confirm their order by sending a POST request to the `/orders/confirm-order` endpoint.
+   - The page includes the ability to display the cart items and calculate the total amount.
+
+- **Order History Page**:
+   - This page fetches and displays the user's previous orders.
+   - It sends a GET request to the `/orders/user-orders-data` endpoint and displays the order items and their status.
+
+#### Navbar
+- The navbar has been updated to include a link to the "Order History" page, allowing users easy access to their past orders.
+
+
+
