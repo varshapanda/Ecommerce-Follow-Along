@@ -886,3 +886,32 @@ The **user.route.js** file contains the routes for adding and deleting addresses
 
 
 
+## Milestone 28 - Cancel Order Feature
+
+### Overview
+In this milestone, the functionality for canceling orders has been implemented. Users can cancel their orders directly from the "Orders" page, provided the order hasn't already been canceled. The order status is updated in the backend and displayed accordingly in the frontend.
+
+#### 1. **Backend Changes**
+   
+   - **CancelOrder Endpoint**:
+     - Created a `PATCH /cancel-order` endpoint that accepts an `orderId` and updates the order status to "Cancelled".
+     - Added validation for both the `userId` and `orderId` to ensure the correct user is canceling the correct order.
+     - Once the order is canceled, a success response is sent with a confirmation message.
+
+#### 2. **Frontend Changes**
+   - **Order History Page**:
+     - A **Cancel Order** button has been added for each order.
+     - The button is only visible if the order's status is not already "Cancelled".
+     - If an order is canceled, the button disappears and the UI is updated accordingly.
+   
+   - **Cart Page**:
+     - Made sure the "Checkout" button redirects users to the correct page for order confirmation and adding a shipping address.
+   
+   - **CartCard Component**:
+     - Added logic to handle the cancelation action. The **Cancel Order** button triggers a cancelation only when the order is not already canceled.
+   
+   - **Order History Page Updates**:
+     - Integrated logic to refresh and reflect the updated status of orders after canceling an order.
+
+
+
