@@ -1,9 +1,13 @@
 import axios from 'axios';
 import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { setUserEmail } from '../../Redux/User/UserActions';
+import { setEmail } from '../../Redux/User/UsersSlice';
 
 
 function LoginPage() {
+  const dispatch = useDispatch();
   const [credentials, setCreds] = useState({
     email: '',
     password: '',
@@ -23,9 +27,13 @@ function LoginPage() {
     event.preventDefault(); // Prevent form from reloading the page
     try {
       const response = await axios.post('http://localhost:8080/user/Login', credentials);
+      console.log(credentials);
+      dispatch(setUserEmail(credentials.email));
+
       localStorage.setItem('token', response.data.token);
       console.log('Logged in successfully:', credentials);
       navigate('/');
+
     } catch (error) {
       console.error('Error during login:', error);
       alert('Login failed. Please check your credentials.');

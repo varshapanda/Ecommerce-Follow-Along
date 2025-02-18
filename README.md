@@ -961,3 +961,34 @@ In this milestone, the Razorpay payment gateway has been integrated into the pro
    - **GET `/payment/get-razorpay-key`**:
      - Fetches Razorpay public key for frontend integration.
 
+
+## Milestone 31
+
+### Overview
+
+In this milestone, we will implement global state management using Redux to store and manage the user's email. This will involve creating a Redux store and user slice, setting up actions for updating the global state, and ensuring that the application components interact with the store correctly. Additionally, we'll wrap the main `App` component with the Redux `Provider` to allow global state access across the application.
+
+
+### 1. **`src/Redux/Store.js`**
+   - **Create Redux Store**: Use `configureStore` from `@reduxjs/toolkit` to create a Redux store.
+   - **Set Up Reducer**: Define and configure a reducer to manage the user's email state (`userReducer`).
+   - **Export Store**: Export the store for use in other components, ensuring the Redux store is available across the app.
+
+### 2. **`src/Redux/User/UserActions.js`**
+   - **Define Action Creator**: Write an asynchronous function called `setUserEmail`, which will accept the user's email as a parameter.
+   - **Dispatch Action**: Inside the `setUserEmail` function, dispatch the `setEmail` action to update the user's email in the global state.
+   - **Handle State Update**: This action will ensure that the user's email is stored correctly in the Redux store.
+
+### 3. **`src/Redux/User/UsersSlice.js`**
+   - **Create Initial State**: Set up an initial state that includes a default value for the email (empty string).
+   - **Create Slice**: Use `createSlice` from `@reduxjs/toolkit` to create a slice for managing the user's email state.
+   - **Define Reducer**: Implement the `setEmail` reducer function to update the email in the global state.
+   - **Export Action and Reducer**: Export the `setEmail` action and the reducer to be used in the store configuration.
+
+### 4. **`src/component/auth/Login.jsx`**
+   - **Dispatch Action on Login**: Use `useDispatch` from `react-redux` to dispatch the `setUserEmail` action after a successful login.
+   - **Store Email in Global State**: Pass the email obtained from the form submission to the `setUserEmail` action to store it in the Redux store.
+
+### 5. **`src/main.jsx`**
+   - **Wrap `App` with `Provider`**: Ensure that the `App` component is wrapped with the `Provider` component from `react-redux`.
+   - **Pass Redux Store**: Pass the configured `store` (imported from `src/Redux/Store.js`) as a prop to the `Provider` component to make the Redux store available across the app.
