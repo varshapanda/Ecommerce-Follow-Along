@@ -1,8 +1,10 @@
 import { useEffect,useState } from 'react';
+import { useSelector } from 'react-redux';
 import Card from '../components/ProductCard/Card';
 import axios from 'axios';
 
 function HomePage() {
+  const dataRedux = useSelector((state) => state.user);
   const [data, setdata] = useState();
   const fetchProduct = async()=>{
     const response = await axios.get('http://localhost:8080/product/get-products');
