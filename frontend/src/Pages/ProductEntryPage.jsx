@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useSelector } from 'react-redux';
 import axios from 'axios';
 
 function ProductEntryPage() {
@@ -11,6 +12,7 @@ function ProductEntryPage() {
     quantity: '',
     category: '',
   });
+  const data = useSelector((state) => state.user);
   const [errorInput, setInputError] = useState('');
   const [Images, setImages] = useState(null);
 

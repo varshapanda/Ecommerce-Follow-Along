@@ -1,5 +1,6 @@
 import axios from 'axios';
 import { useEffect, useState } from 'react';
+import { useSelector } from 'react-redux';
 import CartCard from '../components/ProductCard/CartCard'
 import { useNavigate } from 'react-router-dom';
 import { handlePay } from '../Utils/Razorpay';
@@ -12,6 +13,7 @@ export default function OrderConfirmation() {
   );
   const navigate = useNavigate();
 
+  const data = useSelector((state) => state.user);
   useEffect(() => {
     const getCartData = async () => {
       const token = localStorage.getItem('token');

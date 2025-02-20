@@ -992,3 +992,68 @@ In this milestone, we will implement global state management using Redux to stor
 ### 5. **`src/main.jsx`**
    - **Wrap `App` with `Provider`**: Ensure that the `App` component is wrapped with the `Provider` component from `react-redux`.
    - **Pass Redux Store**: Pass the configured `store` (imported from `src/Redux/Store.js`) as a prop to the `Provider` component to make the Redux store available across the app.
+
+
+## Milestone 32
+
+### Overview
+
+In this milestone, we utilize Redux for state management. The user's email is stored in the global state upon login and accessed throughout the application using useSelector.
+
+### 1. Global State Management
+
+Uses Redux Toolkit to manage global state.
+The email is stored globally in the UsersSlice when a user logs in.All pages retrieve user information using useSelector. Ensures data persistence across different components.
+
+### 2. Cart Management
+
+1. Fetches cart data from the backend.
+
+2. Stores cart information in a state variable.
+
+3. Uses Redux useSelector to access cart details globally.
+
+4. Displays the number of items in the cart dynamically.
+
+### 3. Order History
+
+1. Fetches past order data using an API call.
+
+2. Stores ordered products in a state variable.
+
+3. Uses Redux state to track and manage orders across sessions.
+
+### 4. Order Confirmation
+
+1. Retrieves necessary data such as total price, address, and cart items.
+
+2. Uses Redux useSelector to access order details globally.
+
+### 5. Product Entry
+
+1. Manages product details using useState.
+
+2. Provides fields for product name, price, quantity, and category.
+
+3. Handles validation for product entry fields.
+
+4. Uses Redux to store product information and retrieve user-related data.
+
+### 6. Address Selection
+
+1. Fetches user addresses from an API.
+
+2. Stores all addresses in a state variable.
+
+3. Uses Redux useSelector to access user addresses dynamically.
+
+### 7. Profile Management
+
+1. Fetches user profile details using an API request.
+
+2. Displays user information and addresses.
+
+3. Uses Redux to manage and update user data dynamically.
+
+4. Allows users to delete addresses with updated Redux state.
+   
