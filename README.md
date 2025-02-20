@@ -1056,4 +1056,20 @@ The email is stored globally in the UsersSlice when a user logs in.All pages ret
 3. Uses Redux to manage and update user data dynamically.
 
 4. Allows users to delete addresses with updated Redux state.
+
+## Milestone 33 
+
+### Overview
+This milestone focuses on improving user authentication by implementing JWT token generation and secure cookie storage.
+
+### **Key Points for `backend/src/controllers/user.controller.js`
+
+1. **Handles User Login** – Manages authentication by generating a JWT token.  
+2. **JWT Token Generation** – Uses the `generateToken` function to create a token based on user data.  
+3. **Secure Cookie Implementation** – Stores the JWT token in an HTTP-only, secure, and SameSite-strict cookie.  
+4. **Response Update** – Sends a structured response containing the login success message and token.  
+5. **Prevents XSS & CSRF** – Uses `httpOnly: true` to restrict JavaScript access and `sameSite: 'Strict'` for CSRF protection.  
+6. **Token Expiry Management** – Ensures the token has a defined expiration time.  
+7. **Uses Environment Variables** – Likely depends on a secret key stored in environment variables for signing JWTs.  
+8. **Enhances Security** – Implements `secure: true` to ensure cookies are sent only over HTTPS. 
    
