@@ -1062,7 +1062,7 @@ The email is stored globally in the UsersSlice when a user logs in.All pages ret
 ### Overview
 This milestone focuses on improving user authentication by implementing JWT token generation and secure cookie storage.
 
-### **Key Points for `backend/src/controllers/user.controller.js`
+### Key Points for `backend/src/controllers/user.controller.js`
 
 1. **Handles User Login** – Manages authentication by generating a JWT token.  
 2. **JWT Token Generation** – Uses the `generateToken` function to create a token based on user data.  
@@ -1073,3 +1073,18 @@ This milestone focuses on improving user authentication by implementing JWT toke
 7. **Uses Environment Variables** – Likely depends on a secret key stored in environment variables for signing JWTs.  
 8. **Enhances Security** – Implements `secure: true` to ensure cookies are sent only over HTTPS. 
    
+
+## Milestone 34
+
+### Used JWT in login and any communication between client and the server
+
+- Generate a JWT token upon successful login and store it securely.
+
+- Use JWT for authentication and authorization in API requests.
+
+- Implement token expiration and renewal strategies for security.
+
+### Stored JWT in cookie
+
+- Store JWT tokens in HTTP-only cookies to prevent XSS attacks.
+- Ensure proper token invalidation on logout to prevent unauthorized access.   
