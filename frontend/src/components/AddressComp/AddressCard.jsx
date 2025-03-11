@@ -27,7 +27,7 @@ const AddressCard = () => {
       return alert("Token missing");
     }
     const response = await axios.post(
-      `http://localhost:8080/user/add-address?token=${token}`,
+      `https://ecommerce-follow-along-tbuy.onrender.com/user/add-address?token=${token}`,
       addressData
     );
     navigate("/profile");

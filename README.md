@@ -1088,3 +1088,16 @@ This milestone focuses on improving user authentication by implementing JWT toke
 
 - Store JWT tokens in HTTP-only cookies to prevent XSS attacks.
 - Ensure proper token invalidation on logout to prevent unauthorized access.   
+
+
+## Milestone 35
+
+### DEPLOYED BACKEND LINK
+https://ecommerce-follow-along-tbuy.onrender.com
+
+
+### DEPLOYED FRONTEND LINK
+https://ecommercefollowalong.netlify.app/
+
+
+

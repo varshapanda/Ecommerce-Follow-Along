@@ -7,7 +7,7 @@ function HomePage() {
   const dataRedux = useSelector((state) => state.user);
   const [data, setdata] = useState();
   const fetchProduct = async()=>{
-    const response = await axios.get('http://localhost:8080/product/get-products');
+    const response = await axios.get('https://ecommerce-follow-along-tbuy.onrender.com/product/get-products');
     setdata(response.data.data);
 
   }
@@ -22,7 +22,7 @@ function HomePage() {
 
   const handleDelete = async (id) => {
     console.log('id', id);
-    const data = await axios.delete(`http://localhost:8080/product/${id}`);
+    const data = await axios.delete(`https://ecommerce-follow-along-tbuy.onrender.com/product/${id}`);
     setdata(data.data.data);
   };
 

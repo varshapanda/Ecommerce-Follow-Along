@@ -13,7 +13,7 @@ function SingleProductPage() {
     useEffect(()=>{
         const getProductSingleDetails=async()=>{
             const response = await axios.get(
-                `http://localhost:8080/product/get-single/${id}`
+                `https://ecommerce-follow-along-tbuy.onrender.com/product/get-single/${id}`
             )
             setProduct(response.data.data);
         }

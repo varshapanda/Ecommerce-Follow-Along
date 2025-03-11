@@ -26,7 +26,7 @@ function LoginPage() {
   const handleSubmit = async (event) => {
     event.preventDefault(); // Prevent form from reloading the page
     try {
-      const response = await axios.post('http://localhost:8080/user/Login', credentials);
+      const response = await axios.post('https://ecommerce-follow-along-tbuy.onrender.com/user/Login', credentials);
       console.log(credentials);
       dispatch(setUserEmail(credentials.email));
 
