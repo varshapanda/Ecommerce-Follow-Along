@@ -6,10 +6,10 @@ if (process.env.NODE_ENV !== 'PRODUCTION') {
     path: './src/config/.env',
   });
 }
-console.log({
-  key_id: process.env.RAZORPAY_KEY_ID,
-  key_secret: process.env.RAZORPAY_SECRET,
-});
+// console.log({
+//   key_id: process.env.RAZORPAY_KEY_ID,
+//   key_secret: process.env.RAZORPAY_SECRET,
+// });
 async function createOrder(req, res) {
   const { amount, currency } = req.body;
   try {
