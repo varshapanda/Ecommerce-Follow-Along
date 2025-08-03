@@ -15,7 +15,7 @@ function CardPage(){
         return alert('Token is missing, please login');
       }
       const response = await axios.get(
-        `https://ecommerce-follow-along-tbuy.onrender.com/cart/get-user-cart-data?token=${token}`
+        `https://ecommerce-follow-along-lkys.onrender.com/cart/get-user-cart-data?token=${token}`
       );
       console.log(response);
       setUsersCartData(response.data.cartData);

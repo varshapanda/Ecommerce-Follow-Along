@@ -83,7 +83,7 @@ function UpdateForm() {
       // eslint-disable-next-line no-unused-vars
       let requestdata = await axios
       .put(
-        `https://ecommerce-follow-along-tbuy.onrender.com/product/update-products/${id}`,
+        `https://ecommerce-follow-along-lkys.onrender.com/product/update-products/${id}`,
         formDataBody,
         {
           headers: {
@@ -103,7 +103,7 @@ function UpdateForm() {
   useEffect(() => {
     const getDataForId = async () => {
       const singleData = await axios.get(
-        `https://ecommerce-follow-along-tbuy.onrender.com/product/get-single/${id}`
+        `https://ecommerce-follow-along-lkys.onrender.com/product/get-single/${id}`
       );
       console.log(singleData);
       setFormData(singleData.data.data);

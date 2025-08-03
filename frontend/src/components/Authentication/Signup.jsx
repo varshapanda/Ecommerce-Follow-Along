@@ -52,7 +52,7 @@ function Signup() {
         formDataBody.append('name', data.name);
         formDataBody.append('file',data.file);
         try{
-          await axios.post('https://ecommerce-follow-along-tbuy.onrender.com/user/signup',formDataBody,{
+          await axios.post('https://ecommerce-follow-along-lkys.onrender.com/user/signup',formDataBody,{
             headers:{
               'Content-Type':'multipart/form-data'
             }

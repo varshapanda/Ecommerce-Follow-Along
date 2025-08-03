@@ -13,7 +13,7 @@ function SingleProductPage() {
     useEffect(()=>{
         const getProductSingleDetails=async()=>{
             const response = await axios.get(
-                `https://ecommerce-follow-along-tbuy.onrender.com/product/get-single/${id}`
+                `https://ecommerce-follow-along-lkys.onrender.com/product/get-single/${id}`
             )
             setProduct(response.data.data);
         }

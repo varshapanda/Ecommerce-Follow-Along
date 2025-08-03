@@ -13,7 +13,7 @@ function OrderHistory() {
       return alert('Token is missing , Please login');
     }
     const response = await axios.get(
-      `https://ecommerce-follow-along-tbuy.onrender.com/orders/user-orders-data?token=${token}`
+      `https://ecommerce-follow-along-lkys.onrender.com/orders/user-orders-data?token=${token}`
     );
     const reversedData = response.data.orders?.reverse();
     console.log(response.data.orders);
@@ -30,7 +30,7 @@ function OrderHistory() {
       return alert('Token is missing , Please login');
     }
     await axios.patch(
-      `https://ecommerce-follow-along-tbuy.onrender.com/orders/cancel-order?token=${token}&orderId=${id}`
+      `https://ecommerce-follow-along-lkys.onrender.com/orders/cancel-order?token=${token}&orderId=${id}`
     );
     fetchedOrderedProducts();
   };

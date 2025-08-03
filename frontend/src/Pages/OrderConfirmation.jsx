@@ -21,7 +21,7 @@ export default function OrderConfirmation() {
         return alert('Token is missing , Please login');
       }
       const response = await axios.get(
-        `https://ecommerce-follow-along-tbuy.onrender.com/cart/get-user-cart-data?token=${token}`
+        `https://ecommerce-follow-along-lkys.onrender.com/cart/get-user-cart-data?token=${token}`
       );
 
       let sum = 0;
@@ -42,7 +42,7 @@ export default function OrderConfirmation() {
       return alert('Token is missing please signup');
     }
     const response = await axios.post(
-      `https://ecommerce-follow-along-tbuy.onrender.com/orders/confirm-order?token=${token}`,
+      `https://ecommerce-follow-along-lkys.onrender.com/orders/confirm-order?token=${token}`,
       {
         Items: cartData,
         address: userAddress,

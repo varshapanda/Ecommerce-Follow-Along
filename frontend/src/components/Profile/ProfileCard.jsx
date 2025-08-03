@@ -32,7 +32,7 @@ export function ProfileCard() {
         return alert('Token missing login');
       }
       const response = await axios.get(
-        `https://ecommerce-follow-along-tbuy.onrender.com/user/user-data?token=${token}`
+        `https://ecommerce-follow-along-lkys.onrender.com/user/user-data?token=${token}`
       );
 
       setUserData(response.data.data);
@@ -50,7 +50,7 @@ export function ProfileCard() {
         return alert('Token missing');
       }
       const response = await axios.delete(
-        `https://ecommerce-follow-along-tbuy.onrender.com/user/delete-address/${id}?token=${token}`
+        `https://ecommerce-follow-along-lkys.onrender.com/user/delete-address/${id}?token=${token}`
       );
       getUserData();
     } catch (er) {

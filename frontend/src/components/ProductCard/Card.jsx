@@ -15,7 +15,7 @@ function Card({
     const token = localStorage.getItem('token');
     try {
       await axios.post(
-        `https://ecommerce-follow-along-tbuy.onrender.com/cart/add-to-cart?token=${token}`,
+        `https://ecommerce-follow-along-lkys.onrender.com/cart/add-to-cart?token=${token}`,
         { productId: id, quantity: 1 }
       );
       console.log('Product Added To Cart Successfully...');

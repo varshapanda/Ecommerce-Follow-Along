@@ -13,7 +13,7 @@ export default function SelectAddress(){
                 alert('token missing, login please')
             }
             const response = await axios.get(
-                `https://ecommerce-follow-along-tbuy.onrender.com/user/get-addresses?token=${token}`
+                `https://ecommerce-follow-along-lkys.onrender.com/user/get-addresses?token=${token}`
             )
             // console.log(response)
             console.log(response.data.userInfo);

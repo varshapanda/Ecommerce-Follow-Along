@@ -75,7 +75,7 @@ function ProductEntryPage() {
 
     console.log(formDataBody);
     const token = localStorage.getItem('token');
-    axios.post( `https://ecommerce-follow-along-tbuy.onrender.com/product/create-product?token=${token}`, formDataBody, {
+    axios.post( `https://ecommerce-follow-along-lkys.onrender.com/product/create-product?token=${token}`, formDataBody, {
       headers: {
         "Content-Type": "multipart/form-data",
       },
