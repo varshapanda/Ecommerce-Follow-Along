@@ -1093,11 +1093,11 @@ This milestone focuses on improving user authentication by implementing JWT toke
 ## Milestone 35
 
 ### DEPLOYED BACKEND LINK
-https://ecommerce-follow-along-tbuy.onrender.com
+https://ecommerce-follow-along-lkys.onrender.com
 
 
 ### DEPLOYED FRONTEND LINK
-https://ecommercefollowalong.netlify.app/
+https://ecommerce-follow-along-wine.vercel.app/
 
 
 
